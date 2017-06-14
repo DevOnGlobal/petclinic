@@ -1,9 +1,10 @@
 #!groovy
 pipeline {
-  agent none
-  stages {
+  agent any
+    tools {
+        maven 'apache-maven-3.5.0' 
+    }  stages {
     stage('Build') {
-      agent { docker 'maven' }
       steps {
         withSonarQubeEnv('default') {
           sh "mvn -B clean install sonar:sonar"
