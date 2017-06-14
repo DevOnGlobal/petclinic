@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh "mvn -B clean install sonar:sonar"
+        sh "mvn -B clean install"
         junit '**/target/surefire-reports/*.xml'
       }
     }    
