@@ -5,7 +5,9 @@ pipeline {
     stage('Build') {
       agent { docker 'maven' }
       steps {
-        sh "mvn -B clean install"
+        withSonarQubeEnv('default') {
+          sh "mvn -B clean install sonar:sonar"
+        }
         junit '**/target/surefire-reports/*.xml'
         dir('target') {
           stash includes: '*.war', name: 'war'
