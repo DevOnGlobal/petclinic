@@ -1,6 +1,6 @@
 #!groovy
 pipeline {
-  agent any
+  agent { docker 'maven' }
   stages {
     stage('Build') {
       steps {
