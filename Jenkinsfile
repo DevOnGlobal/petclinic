@@ -16,14 +16,14 @@ pipeline {
         agent any
         steps {
             unstash 'war'
-            sh 'curl -u deploy:cdtraining --upload-file petclinic.war "http://psdcdpolitie_tomcat_1:8080/manager/text/deploy?path=/test&update=true"'
+            sh 'curl -u deploy:cdtraining --upload-file petclinic.war "http://psdcdpolitie_tomcat-test_1:8080/manager/text/deploy?path=/petclinic&update=true"'
         }
     }
     stage('Acceptance') {
         agent any
         steps {
             unstash 'war'
-            sh 'curl -u deploy:cdtraining --upload-file petclinic.war "http://psdcdpolitie_tomcat_1:8080/manager/text/deploy?path=/acceptance&update=true"'
+            sh 'curl -u deploy:cdtraining --upload-file petclinic.war "http://psdcdpolitie_tomcat-acc_1:8080/manager/text/deploy?path=/petclinic&update=true"'
             input 'Continue to Production?'
         }
     }
@@ -31,7 +31,7 @@ pipeline {
         agent any
         steps {
             unstash 'war'
-            sh 'curl -u deploy:cdtraining --upload-file petclinic.war "http://psdcdpolitie_tomcat_1:8080/manager/text/deploy?path=/production&update=true"'
+            sh 'curl -u deploy:cdtraining --upload-file petclinic.war "http://psdcdpolitie_tomcat-prod_1:8080/manager/text/deploy?path=/petclinic&update=true"'
         }
     }
   }
