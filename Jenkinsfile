@@ -21,6 +21,9 @@ pipeline {
         steps {
             unstash 'war'
             sh 'curl -u deploy:cdtraining --upload-file petclinic.war "http://psdcdpolitie_tomcat-test_1:8080/manager/text/deploy?path=/petclinic&update=true"'
+            dir ('uitests') {
+                sh "mvn -DappUrl=psdcdpolitie_tomcat-test_1:8080/petclinic -DremoteUrl=http://selenium-hub:4444/wd/hub test"
+            }
         }
     }
     stage('Acceptance') {
