@@ -23,7 +23,7 @@ stage('Prod') {
   input 'Go to production?'
   node {
     checkout scm
-    sh 'kubectl config use-context default'
+    sh 'kubectl config use-context prod'
     sh "sed 's#:latest#:${env.BUILD_NUMBER}#' kubernetes/deployments/app.yaml | kubectl apply -f -"
     sh 'kubectl rollout status deployment/hello'
   }
