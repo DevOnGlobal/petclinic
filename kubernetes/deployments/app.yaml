@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hello
+spec:
+  template:
+    metadata:
+      labels:
+        app: hello
+        track: stable
+    spec:
+      containers:
+        - name: hello
+          image: "harmpauw/petclinic:latest"
+          ports:
+            - name: http
+              containerPort: 8080
