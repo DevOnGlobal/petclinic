@@ -9,7 +9,7 @@ Feature: Manage owners
     Given there is an owner "Betty Davis"
     And there is an owner "Harold Davis"
     When I search for "Davis"
-    Then I should get 3 results back
+    Then I should get 2 results back
 
   Scenario: Search non existing owner
     When I search for "Nonexistingowner"
