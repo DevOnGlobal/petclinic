@@ -14,7 +14,7 @@ stage('Test') {
   node {
     checkout scm
     
-    sh "sed 's#:latest#:test#' deployments/app.yaml | kubectl apply -f -"
+    sh "sed 's#:latest#:test#' kubernetes/deployments/app.yaml | kubectl apply -f -"
     
   }
 }
