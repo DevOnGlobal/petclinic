@@ -20,7 +20,7 @@ stage('Test') {
   }
 }
 stage('Prod') {
-  input 'Go to production?"
+  input 'Go to production?'
   node {
     checkout scm
     sh 'kubectl use-context default'
