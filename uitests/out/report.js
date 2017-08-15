@@ -7,7 +7,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 3626586969,
+  "duration": 5017786542,
   "status": "passed"
 });
 formatter.scenario({
@@ -43,7 +43,7 @@ formatter.match({
   "location": "OwnerSteps.there_is_an_owner(String)"
 });
 formatter.result({
-  "duration": 105329377,
+  "duration": 112821441,
   "status": "passed"
 });
 formatter.match({
@@ -56,7 +56,7 @@ formatter.match({
   "location": "OwnerSteps.i_search_for(String)"
 });
 formatter.result({
-  "duration": 2836274949,
+  "duration": 954726449,
   "status": "passed"
 });
 formatter.match({
@@ -69,15 +69,15 @@ formatter.match({
   "location": "OwnerSteps.i_should_get_one_result_back(String)"
 });
 formatter.result({
-  "duration": 192462947,
+  "duration": 226214227,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1645026966,
+  "duration": 2028460348,
   "status": "passed"
 });
 formatter.before({
-  "duration": 2743593856,
+  "duration": 3904541296,
   "status": "passed"
 });
 formatter.scenario({
@@ -118,7 +118,7 @@ formatter.match({
   "location": "OwnerSteps.there_is_an_owner(String)"
 });
 formatter.result({
-  "duration": 60299,
+  "duration": 79116,
   "status": "passed"
 });
 formatter.match({
@@ -131,7 +131,7 @@ formatter.match({
   "location": "OwnerSteps.there_is_an_owner(String)"
 });
 formatter.result({
-  "duration": 56878,
+  "duration": 138132,
   "status": "passed"
 });
 formatter.match({
@@ -144,7 +144,7 @@ formatter.match({
   "location": "OwnerSteps.i_search_for(String)"
 });
 formatter.result({
-  "duration": 992797030,
+  "duration": 1130521168,
   "status": "passed"
 });
 formatter.match({
@@ -157,15 +157,15 @@ formatter.match({
   "location": "OwnerSteps.i_should_get_n_results_back(int)"
 });
 formatter.result({
-  "duration": 226257420,
+  "duration": 252068026,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1514547707,
+  "duration": 1648278844,
   "status": "passed"
 });
 formatter.before({
-  "duration": 2733357966,
+  "duration": 3914305057,
   "status": "passed"
 });
 formatter.scenario({
@@ -196,18 +196,19 @@ formatter.match({
   "location": "OwnerSteps.i_search_for(String)"
 });
 formatter.result({
-  "duration": 1865961808,
+  "duration": 659775884,
   "status": "passed"
 });
 formatter.match({
   "location": "OwnerSteps.i_should_get_no_results_back()"
 });
 formatter.result({
-  "duration": 273346359,
-  "status": "passed"
+  "duration": 190813487,
+  "error_message": "org.junit.ComparisonFailure: expected:\u003c[does not exist]\u003e but was:\u003c[has not been found]\u003e\r\n\tat org.junit.Assert.assertEquals(Assert.java:115)\r\n\tat org.junit.Assert.assertEquals(Assert.java:144)\r\n\tat nl.prowareness.springpetclinic.uitests.steps.OwnerSteps.i_should_get_no_results_back(OwnerSteps.java:79)\r\n\tat ✽.Then I should get no results back(nl/prowareness/springpetclinic/uitests/OwnerFeature.feature:16)\r\n",
+  "status": "failed"
 });
 formatter.after({
-  "duration": 1535869234,
+  "duration": 1702013949,
   "status": "passed"
 });
 });

@@ -76,6 +76,6 @@ public class OwnerSteps {
     @Then("^I should get no results back$")
     public void i_should_get_no_results_back() throws Throwable {
         WebElement element = webDriver.findElement(By.id("owner.errors"));
-        Assert.assertEquals("has not been found", element.getText());
+        Assert.assertEquals("does not exist", element.getText());
     }
 }
