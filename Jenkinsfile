@@ -21,6 +21,7 @@ stage('Test') {
     dir ('uitests') {
       def maven = tool name: 'default', type: 'maven'
       sh "${maven}/bin/mvn test -DappUrl=https://test.tddcyclecounter.nl/ -DremoteUrl=http://172.19.0.1:4445/wd/hub"
+      junit '**/target/surefire-reports/*.xml'
     }
   }
 }
