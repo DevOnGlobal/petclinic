@@ -5,7 +5,7 @@ stage('Commit') {
     
     def image = docker.build('harmpauw/petclinic')
     docker.withRegistry('https://index.docker.io/v1/','b7dafb21-aace-43b3-b765-f63a508085b2') {
-      image.push()
+      image.push('test')
     }
   }
 }
@@ -14,7 +14,7 @@ stage('Test') {
   node {
     checkout scm
     
-    sh 'kubectl apply -f kubernetes/deployments/app.yaml'
+    sh 's#:latest#:test#' deployments/app.yaml | kubectl apply -f -'
     
   }
 }
