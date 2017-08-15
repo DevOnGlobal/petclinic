@@ -24,10 +24,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class OwnerSteps {
 
-    private WebDriver webDriver;
+    private static WebDriver webDriver;
 
     @Before
-    public void loadWebDriver() throws MalformedURLException {
+    public static void loadWebDriver() throws MalformedURLException {
         String remoteUrl = System.getProperty("remoteUrl");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setAcceptUntrustedCertificates(true);
@@ -61,7 +61,7 @@ public class OwnerSteps {
         element.submit();
     }
 
-    @Then("^I should get \"([^\"]*)\" back$")
+    @Then("^I should get the details of \"([^\"]*)\" back$")
     public void i_should_get_one_result_back(String name) throws Throwable {
         WebElement element = webDriver.findElement(By.cssSelector("body > div > div > table:nth-child(2) > tbody > tr:nth-child(1) > td > b"));
         Assert.assertEquals(name, element.getText());

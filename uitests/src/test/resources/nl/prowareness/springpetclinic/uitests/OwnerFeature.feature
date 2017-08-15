@@ -3,7 +3,7 @@ Feature: Manage owners
   Scenario: Search for owner with unique last name
     Given there is an owner "Jeff Black"
     When I search for "Black"
-    Then I should get "Jeff Black" back
+    Then I should get the details of "Jeff Black" back
 
   Scenario: Search for owners with same last name
     Given there is an owner "Betty Davis"
