@@ -20,7 +20,7 @@ stage('Test') {
     
     dir ('uitests') {
       def maven = tool name: 'default', type: 'maven'
-      sh "${maven}/mvn test -DappUrl=https://test.tddcyclecounter.nl -DremoteUrl=http://172.17.0.5:444/wd/hub"
+      sh "${maven}/bin/mvn test -DappUrl=https://test.tddcyclecounter.nl -DremoteUrl=http://172.17.0.5:444/wd/hub"
     }
   }
 }
