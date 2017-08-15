@@ -26,7 +26,6 @@ stage('Test') {
   }
 }
 stage('Prod') {
-  input 'Go to production?'
   node {
     checkout scm
     sh 'kubectl config use-context prod'
