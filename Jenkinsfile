@@ -17,6 +17,11 @@ stage('Test') {
     sh 'kubectl config use-context test'
     sh "sed 's#:latest#:${env.BUILD_NUMBER}#' kubernetes/deployments/app.yaml | kubectl apply -f -"
     sh 'kubectl rollout status deployment/hello'
+    
+    dir ('uitests') {
+      def maven = tool name: 'default', type: 'maven'
+      sh "${maven}/mvn test -DappUrl=https://test.tddcyclecounter.nl -DremoteUrl=http://172.17.0.5:444/wd/hub"
+    }
   }
 }
 stage('Prod') {
