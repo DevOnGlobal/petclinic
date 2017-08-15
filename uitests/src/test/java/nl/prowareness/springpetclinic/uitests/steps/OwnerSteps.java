@@ -28,9 +28,14 @@ public class OwnerSteps {
     @Before
     public void loadWebDriver() throws MalformedURLException {
         String remoteUrl = System.getProperty("remoteUrl");
+        FirefoxProfile profile = new FirefoxProfile();
+        profile.setAcceptUntrustedCertificates(true);
+        DesiredCapabilities caps = DesiredCapabilities.firefox();
+        caps.setCapability(FirefoxDriver.PROFILE, profile);
+
         webDriver = remoteUrl != null ?
-            new RemoteWebDriver(new URL(remoteUrl), DesiredCapabilities.firefox()) :
-            new FirefoxDriver();
+            new RemoteWebDriver(new URL(remoteUrl), caps) :
+            new FirefoxDriver(caps);
 
         webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         webDriver.manage().window().maximize();
