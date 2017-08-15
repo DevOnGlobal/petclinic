@@ -9,3 +9,12 @@ stage('Commit') {
     }
   }
 }
+
+stage('Test') {
+  node {
+    checkout scm
+    
+    sh 'kubectl apply -f kubernetes/deployments/app.yaml'
+    
+  }
+}
