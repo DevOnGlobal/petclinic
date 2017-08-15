@@ -14,8 +14,17 @@ stage('Commit') {
 stage('Test') {
   node {
     checkout scm
-    
+    sh 'kubectl use-context test'
     sh "sed 's#:latest#:${env.BUILD_NUMBER}#' kubernetes/deployments/app.yaml | kubectl apply -f -"
-    
+    sh 'kubectl rollout status deployment/hello'
+  }
+}
+stage('Prod') {
+  input 'Go to production?"
+  node {
+    checkout scm
+    sh 'kubectl use-context default'
+    sh "sed 's#:latest#:${env.BUILD_NUMBER}#' kubernetes/deployments/app.yaml | kubectl apply -f -"
+    sh 'kubectl rollout status deployment/hello'
   }
 }
